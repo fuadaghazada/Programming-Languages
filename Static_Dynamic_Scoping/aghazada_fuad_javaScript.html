@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<header>
+    <meta charset="utf-8"></meta>
+    <title> Static scoping on JavaScript </title>
+</header>
+
+<body>
+    <h3> Result can be found on JavaScript console --></h3>
+    <script>
+
+        /**
+            Analyzing Static scoping on JavaScript language
+
+            @author: Fuad Aghazada
+            @date:   29/03/2018
+        */
+
+        //Test variable for the experiment
+        var testVariable = 7;
+
+        function bar()
+        {
+            var testVariable = 19;
+
+            console.log("In bar:" + testVariable);
+
+            return foo();
+        }
+
+        function foo()
+        {
+            var testVariable = 20;
+
+            console.log("In foo:" + testVariable);
+
+            return goo();
+        }
+
+        function goo()
+        {
+            console.log("In goo:" + testVariable);
+
+            return testVariable;
+        }
+
+        console.log("Before calling function bar testVariable: " + testVariable);
+
+        bar();
+
+        console.log("After calling function bar testVariable: " + testVariable);
+
+
+        // Result of Analysis  for static scoping in JavaScript
+
+        /*
+
+        Output:
+        Before calling function bar testVariable: 7
+        In bar: 19
+        In foo: 20
+        In goo: 7
+        After calling function bar testVariable: 7
+
+        */
+
+    </script>
+</body>
+
+</html>

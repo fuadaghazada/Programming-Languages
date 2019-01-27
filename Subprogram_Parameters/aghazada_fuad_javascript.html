@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title> Function parameters in JavaScript! </title>
+    <script type = "text/javascript">
+
+    /**
+        Analyzing function parameters in JavaScript
+
+        @author: Fuad Aghazada
+        @date: 20/04/2018
+    */
+
+    // Example function for demonstrating positional / keyword parameter correspondence
+    function myFunction0(par0, par1)
+    {
+        document.write(par0 + " is the first parameter <br>");
+        document.write(par1 + " is the second parameter <br><br>");
+    }
+
+    // Example function for demonstrating default parameter value
+    function myFunction1(par0, par1 = "I am a default parameter", par2 = "Me too", par3 = 100)
+    {
+        document.write("Parameter 0: " + par0 + "<br>");
+        document.write("Parameter 1: " + par1 + "<br>");
+        document.write("Parameter 2: " + par2 + "<br>");
+        document.write("Parameter 3: " + par3 + "<br><br>");
+    }
+
+    // Example function for demonstrating variable number of parameters
+    function myFunction2()
+    {
+        // printing number of parameters
+        document.write("Number of parameters: " + arguments.length + "<br>");
+
+        // printing all parameters
+        for( var i = 0; i < arguments.length; i++)
+        {
+            document.write(arguments[i] + "<br>");
+        }
+        document.write("<br>");
+    }
+
+    // Example function for parameter passing
+    function myFunction3(par0, par1, par2)
+    {
+        // modifiying the values of the parameters
+        par0 += 77
+        par1 = "New String"
+        par2.push(100)
+
+        // Values of paramaters inside the function
+        document.write("In myFunction3 par0: " + par0 + "<br>");
+        document.write("In myFunction3 par1: " + par1 + "<br>");
+        document.write("In myFunction3 par2: " + par2 + "<br><br>")
+    }
+
+    // Positional / Keyword parameters
+    myFunction0("sampleString", 7);
+    myFunction0(par0 = "sampleString", par1 = 7);
+    myFunction0(par1 = 7, par0 = "sampleString");
+
+    // Formal parameter default values
+    myFunction1("sampleString");
+    myFunction1("sampleString", 7);
+    myFunction1("sampleString", 7, "new_par_3");
+    myFunction1("sampleString", par2 = 7);
+    myFunction1("sampleString", par3 = "new_par_3");
+
+    // Variable number of parameters
+    myFunction2("myPar");
+    myFunction2(1, 2, 3, "myPar");
+
+    // Parameter passing
+    var first_par = 7;
+    var second_par = "sampleString";
+    var third_par = [1, 2, "aString"];
+
+    // Values before myFunction3
+    document.write("Before calling myFunction3 first_par: " + first_par + "<br>");
+    document.write("Before calling myFunction3 second_par: " + second_par + "<br>");
+    document.write("Before calling myFunction3 third_par: " + third_par + "<br><br>");
+
+    myFunction3(first_par, second_par, third_par);
+
+    // Values after myFunction3
+    document.write("After calling myFunction3 first_par: " + first_par + "<br>");
+    document.write("After calling myFunction3 second_par: " + second_par + "<br>");
+    document.write("After calling myFunction3 third_par: " + third_par + "<br><br>");
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
